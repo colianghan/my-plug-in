@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="toDos">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+  <link href="bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+      .list{height: 40px;border-bottom: 1px solid #ccc;}
+      .list p{text-align: left}
+      .dialog{background: #000;opacity: 0.5;width: 100%;height: 100%;z-index: 10;position: fixed;top: 0;display: none;}
+   </style>
+</head>
+<body>
+<!--    <script type="text/ng-template" id="taskList">
+      
+    </script>-->
+    <show-Alert>
+        <p>你好啊，欢迎使用Todos</p>
+    </show-Alert>
+    <div class="container" ng-controller="toDos_ctrl">
+        <div class="hero-unit" style="text-align:center;">
+            <h1>Todos</h1>
+            <input type="text" class="span7" show-length ng-model="task" placeholder="what needs to be done?" ng-keyup="addTask($event);">
+            <div class="well">
+                <div class="list" ng-repeat="name in taskList">
+                     <p>
+                         <span class="pull-left">【{{$index}}】</span>
+                         <input type="checkbox" value="{{name}}" /> 
+                         <span>{{name}}</span> 
+                     </p>
+                </div>
+                <div style="margin-top:8px;" ng-show="taskList.length">
+                    <button class="btn btn-middle" ng-click="deleTask();">删除选择</button>
+                </div>
+                <div ng-if="taskList.length==0" edit>
+                    <p>没有记录</p>
+                </div>
+            </div>
+            <div class="well">
+                <p>共记录{{taskList.length}}条</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="bootstrap.js"></script>
+    <script src="angular.min.js"></script>
+    <script type="text/javascript">
+        var dm=angular.module('toDos',[])
+          .factory('getTask',['$http',function($http){
+            return function(win){
+              $http.get('taskList.json').success(function(response){
+                    console.log(typeof response);
+                    var data=response;
+                    console.log(data);
+                    win.taskList=data;
+                    win.count=win.taskList.length;
+                    return data;
+                }).error(function(){
+                   win.taskList=[];
+                   win.count=win.taskList.length;
+                });   
+              }
+            }])
+            .service('removeTask',function(){
+                this.remov=function(win,index){
+                    win.taskList[index]&&(win.taskList[index]=null);
+                    //win.taskList.splice(index,1);
+                }
+            })
+            .controller('toDos_ctrl',['$scope','getTask','removeTask',function($scope,getTask,removeTask){
+                console.log(getTask($scope));
+                getTask($scope);
+                //$scope.taskList = getTask();
+                //$scope.count= $scope.taskList.length;
+                //$scope.name="words";
+                $scope.addTask=function(e){
+                    console.log($scope.task);
+                    console.log($scope.taskList);
+                    if(e.keyCode==13)
+                    {
+                       $scope.taskList.push($scope.task);
+                       $scope.task="";
+                       console.log($scope.taskList.length);
+                    }
+                };
+                $scope.deleTask=function(){
+                    if(confirm('是否要删除'))
+                    {
+                        var _hasChecked=true;
+                        var _checkBox=$('input:checkbox');
+                        _checkBox.length&&_checkBox.each(function(index,item){
+                            if(item.checked)
+                            {
+                               removeTask.remov($scope,index);
+                               _hasChecked=false;
+                            }
+                        });
+                        var arr=[];
+                        $.each($scope.taskList,function(index,item){
+                            if(item!=null)
+                              arr.push(item);
+                        });
+                        $scope.taskList=arr;
+                        if(_hasChecked)
+                        {
+                            alert('请选择删除的东西');
+                        }
+                    }
+                }
+            }]);
+        
+           /* dm.directive('showLength',function($scope,$element,$attrs){
+                var func=function(element,attrs,link){
+                    return function(scope,element,attrs){
+                         var node= link(scope);
+                         element.append(node);
+                         var lnode ='<span></span>';
+                         element.prepend(lnode);
+                         scope.$watch(function(scope){
+                             lnode.text(node.val().length);
+                         });
+                    }  
+                };
+                return{
+                    compile:func,
+                    transclude:true,
+                    restrict:'A'
+                };
+            });*/
+        
+             dm.directive("showLength",function(){
+                var func=function(element,attr,link){
+                    return function(scope,element,attr){
+                         var node= $(element);
+                         var newNode=$('<span>');
+                         //newNode.after(node).text( $.trim(node.val()).length);
+                         node.after(newNode.text( $.trim(node.val()).length));
+                         scope.$watch(function(){
+                             var _num = $.trim(node.val()).length;
+                             newNode.text(_num);
+                             //var css_default = node.css('border-color');
+                             if(_num>10){
+                                 node.css({borderColor:'red'});
+                             }
+                             else if(_num!=0)
+                             {
+                                 node.css({borderColor:'rgba(82, 168, 236, 0.8)'});
+                             }
+                             else
+                             {
+                                 node.css({borderColor:'#ccc'});
+                             }
+                         });
+                    }
+                };
+                 return {
+                     restrict:'AE',
+                     compile:func,
+                     transclude:'true'
+                 }
+             });
+             dm.directive('showAlert',function($rootScope){
+                 var func= function(scope,elem,att){
+                     var node=$(elem);
+                     var _html=$(elem).html();
+                     //var width=$(elem).width();
+                     //console.log(width);
+                     $(elem).remove();
+                     $('<div>',{class:'dialog'}).append($('<div>').css({
+                         position: 'fixed',
+                         top: '50%',
+                         left: '50%',
+                         color: '#fff',
+                         fontSize: '30px',
+                         'z-index':11
+                     }).html(_html)).click(function(e){
+                         $(this).stop(true).slideUp('slow');
+                     }).appendTo('body').slideDown(3000);
+                     
+                     var content =$('.dialog').find('div:first');
+                     var width = content.width();
+                     content.css({marginLeft:-width/2});
+                 };
+                 return {
+                     restrict:'E',
+                     link:func
+                 }
+             });
+          /*   dm.directive('edit',function(){
+                var func= function(element,attr,link){
+                    return function(scope,ele,attr,controller)
+                    {
+                       console.log(ele);
+                       var node=$(ele);
+                       scope.$watch(function(){
+                          var targetNode=$event.target;
+                          if(targetNode.tagName.toLowerCase()=='span')
+                          {
+                              
+                          }
+                       });
+                    }
+                };
+                return {
+                   compile:func,
+                   restrict:'AE',
+                   transclude:true
+                }
+             });*/
+    </script>
+</body>
+</html>
