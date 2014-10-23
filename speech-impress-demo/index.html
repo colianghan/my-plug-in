@@ -1,0 +1,259 @@
+<!doctype html>
+
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____                  
+                            _.' :  `._               
+                        .-.'`.  ;   .'`.-.           
+               __      / : ___\ ;  /___ ; \      __  
+             ,'_ ""--.:__;".-.";: :".-.":__;.--"" _`,
+             :' `.t""--.. '<@.`;_  ',@:` ..--""j.' `;
+                  `:-.._J '-.-'L__ `-- ' L_..-;'     
+                    "-.__ ;  .-"  "-.  : __.-"       
+                        L ' /.------.\ ' J           
+                         "-.   "--"   .-"            
+                        __.l"-:_JL_;-";.__           
+                     .-j/'.;  ;""""  / .'\"-.        
+                   .' /:`. "-.:     .-" .';  `.      
+                .-"  / ;  "-. "-..-" .-"  :    "-.   
+             .+"-.  : :      "-.__.-"      ;-._   \  
+             ; \  `.; ;                    : : "+. ; 
+             :  ;   ; ;                    : ;  : \: 
+             ;  :   ; :                    ;:   ;  : 
+            : \  ;  :  ;                  : ;  /  :: 
+            ;  ; :   ; :                  ;   :   ;: 
+            :  :  ;  :  ;                : :  ;  : ; 
+            ;\    :   ; :                ; ;     ; ; 
+            : `."-;   :  ;              :  ;    /  ; 
+             ;    -:   ; :              ;  : .-"   : 
+             :\     \  :  ;            : \.-"      : 
+              ;`.    \  ; :            ;.'_..--  / ; 
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
+                    \ / .-"   /.     .'.' ;_:'    ;  
+                     :-""-.`./-.'     /    `.___.'   
+                           \ `t  ._  /               
+                            "-.t-._:'                
+
+-->
+
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+<!-- 
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" /> -->
+
+    
+    <link href="bower_components/impress.js/css/impress-demo.css" rel="stylesheet" />
+    <link href="main.css" rel="stylesheet" />
+    <link rel='stylesheet'  href='http://tool.oschina.net/js/syntaxhighlighter_3.0.83/styles/shCoreEmacs.css'/>
+</head>
+
+
+<body class="impress-not-supported">
+
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    
+    Now that's the core element used by impress.js.
+    
+    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
+    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
+    
+    You probably won't need it now, but there are some configuration options that can be set on this element.
+    
+    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
+    a number of ms. It defaults to 1000 (1s).
+    
+    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
+    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
+    If you are willing to change this value make sure you understand how CSS perspective works:
+    https://developer.mozilla.org/en/CSS/perspective
+    
+    But as I said, you won't need it for now, so don't worry - there are some simple but interesing things
+    right around the corner of this tag ;)
+    
+-->
+<div id="impress">
+
+    
+    <div id="bored" class="step " data-x="-2000" data-y="-2400" data-rotate="-60">
+		<h1>可以学一点的Node.js</h1>
+        <h1>&&</h1>
+        <h1>妙不可言的前端开发工具</h1>
+    </div>
+		
+    
+    <div class="step slide" data-x="0" data-y="-1500">
+        <header>Node.js</header>
+        <h1>不是JS应用、而是JS运行平台</h1>
+        <div class='pull-left w-half'>
+            <header>Chrome</header>
+            <ul>
+                <li>HTML + JavaScript</li>
+                <li>WebKit + V8</li>
+                <li>中间层</li>
+                <li>网卡、硬盘、显卡...</li>
+            </ul>
+        </div>
+        <div class='pull-left w-half'>
+            <header>Node</header>
+            <ul>
+                <li>Javascript</li>
+                <li>V8</li>
+                <li>中间层(libuv)</li>
+                <li>网卡、硬盘...</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step slide" data-x="1300" data-y="-1500">
+        <header>Node.js</header>
+        <h1>采用事件驱动、异步编程，为网络服务而设计</h1>
+        <div id="highlighter_342914" class="syntaxhighlighter  js"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code>&nbsp;<code class="js plain">hostRequest&nbsp;=&nbsp;http.request(options,</code><code class="js keyword">function</code><code class="js plain">(response)&nbsp;{</code></div><div class="line number2 index1 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">var</code>&nbsp;<code class="js plain">responseHTML&nbsp;=</code><code class="js string">''</code><code class="js plain">;</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">response.on(</code><code class="js string">'data'</code><code class="js plain">,&nbsp;</code><code class="js keyword">function</code>&nbsp;<code class="js plain">(chunk)&nbsp;{</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">responseHTML&nbsp;=&nbsp;responseHTML&nbsp;+&nbsp;chunk;</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">});</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">response.on(</code><code class="js string">'end'</code><code class="js plain">,</code><code class="js keyword">function</code><code class="js plain">(){</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">console.log(responseHTML);</code></div><div class="line number8 index7 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js comments">//&nbsp;do&nbsp;something&nbsp;useful</code></div><div class="line number9 index8 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">});</code></div><div class="line number10 index9 alt1"><code class="js plain">}); </code></div></div></td></tr></tbody></table></div>
+    </div>
+    <div class="step slide" data-x="2600" data-y="-1500">
+        <header>Node.js</header>
+        <h1>采用事件驱动、异步编程，为网络服务而设计</h1>
+        <div id="highlighter_519098" class="syntaxhighlighter  js"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code>&nbsp;<code class="js plain">fs&nbsp;=&nbsp;require(</code><code class="js string">'fs'</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js plain">fs.readFile(</code><code class="js string">'/path1'</code><code class="js plain">,</code><code class="js keyword">function</code><code class="js plain">(err,file){</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">console.log(</code><code class="js string">'读完1了'</code><code class="js plain">);</code></div><div class="line number4 index3 alt1"><code class="js plain">});</code></div><div class="line number5 index4 alt2"><code class="js plain">fs.readFile(</code><code class="js string">'/path1'</code><code class="js plain">,</code><code class="js keyword">function</code><code class="js plain">(err,file){</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">console.log(</code><code class="js string">'读完2了'</code><code class="js plain">);</code></div><div class="line number7 index6 alt2"><code class="js plain">});</code></div></div></td></tr></tbody></table></div>
+    </div>
+    <div class="step slide" data-x="3900" data-y="-1500">
+        <header>Node.js</header>
+        <h1>采用事件驱动、异步编程，为网络服务而设计</h1>
+        <div id="highlighter_577556" class="syntaxhighlighter  js"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code>&nbsp;<code class="js plain">http&nbsp;=&nbsp;require(</code><code class="js string">'http'</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js plain">http.createServer(</code><code class="js keyword">function</code>&nbsp;<code class="js plain">(req,&nbsp;res)&nbsp;{</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">res.writeHead(200,&nbsp;{</code><code class="js string">'Content-Type'</code><code class="js plain">:&nbsp;</code><code class="js string">'text/plain'</code><code class="js plain">});</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js plain">res.end(</code><code class="js string">'&lt;h1&gt;Hello&nbsp;world&lt;/h1&gt;'</code><code class="js plain">);</code></div><div class="line number5 index4 alt2"><code class="js plain">}).listen(1337,&nbsp;</code><code class="js string">'127.0.0.1'</code><code class="js plain">);</code></div><div class="line number6 index5 alt1"><code class="js plain">console.log(</code><code class="js string">'Server&nbsp;running&nbsp;at&nbsp;<a href="http://127.0.0.1:1337/">http://127.0.0.1:1337/</a>'</code><code class="js plain">);</code></div><div class="line number7 index6 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;</code>&nbsp;</div></div></td></tr></tbody></table></div>
+    </div>
+    <div class="step slide" data-x="5200" data-y="-1500">
+        <header>Node.js</header>
+        <h1>模块机制</h1>
+        <h2>CommonJS</h2>
+        <div id="highlighter_139403" class="syntaxhighlighter  js"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code>&nbsp;<code class="js plain">math&nbsp;=&nbsp;require(</code><code class="js string">'math'</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js plain">exports.increment&nbsp;=&nbsp;</code><code class="js keyword">function</code><code class="js plain">(val){</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js keyword">return</code>&nbsp;<code class="js plain">math.add(val,&nbsp;1);</code></div><div class="line number4 index3 alt1"><code class="js plain">}</code></div></div></td></tr></tbody></table></div>
+        <h2>引入模块</h2>
+        <p>路径分析-->文件定位-->编译执行</p>
+        <h2>模块类型</h2>
+        <p>文件模块（Javascript模块 + C/C++扩展模块）</p>
+        <p>核心模块（Javascript模块 + C/C++内建模块）</p>
+    </div>
+    
+    
+    <div class="step more" data-x="5200" data-y="200" data-rotate="90" data-scale="3" data-rotate-y="90">
+        <header>PACKAGE&NPM</header>   
+    </div>
+    <div class="step" data-x="5200" data-y="1800" data-rotate="-180" data-scale="3">
+        <header>package.json</header>
+    </div>
+    <div class="step" data-x="2400" data-y="1800" data-rotate="-180" data-scale="3">
+       <header>npm init</header>
+    </div>
+    <div class="step" data-x="0" data-y="1800" data-rotate="-180" data-scale="3">
+       <header>Browserify</header>
+    </div>
+    <div class="step" data-x="-1100" data-y="600" data-rotate="90" data-scale="3">
+       <header>bower</header>
+    </div>
+    <div class="step" data-x="-1100" data-y="-900" data-rotate="90" data-scale="3">
+       <header>Grunt</header>
+    </div>
+    <div class="step" data-x="-1100" data-y="-2600" data-rotate="90" data-scale="3">
+       <header>Yeoman</header>
+    </div>
+    <div class="step" data-x="300" data-y="2600" data-scale="3" data-rotate="-40">
+       <header>CDN</header>
+    </div>
+    <div class="step more" data-x="-2000" data-y="-3400"  data-scale="3" data-rotate="-30">
+       <header>FASTWEB</header>
+    </div>
+    <div class="step" data-x="4000" data-y="2700"  data-scale="3" data-rotate="220">
+       <header>GIT</header>
+    </div>
+    <div class="step" data-x="2200" data-y="100"  data-scale="6" >
+       <header>O(∩_∩)O</header>
+    </div>
+
+    <!-- <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <p>It's a <strong>presentation tool</strong> <br/>
+        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+    </div>
+
+    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+    </div>
+
+    
+    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+        <p>and <b>tiny</b> ideas</p>
+    </div>
+
+    
+    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+    </div>
+
+    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+    </div>
+
+    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+        <p>want to know more?</p>
+        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+    </div>
+
+    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="1">
+        <p>one more thing...</p>
+    </div>
+
+    
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <p>
+			<span class="have">have</span>
+			<span class="you">you</span> 
+			<span class="noticed">noticed</span>
+			<span class="its">it's</span> 
+			<span class="in">in</span>
+			<b>3D<sup>*</sup></b>?
+		</p>
+        <span class="footnote">* beat that, prezi ;)</span>
+    </div>
+
+    -->
+    <div id="overview" class="step" data-x="2000" data-y="500" data-scale="10">
+    </div>
+
+</div>
+
+
+
+<script src="bower_components/impress.js/js/impress.js"></script>
+<script>
+	impress().init();
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+

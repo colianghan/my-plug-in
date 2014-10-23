@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery Lightbox</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<style type="text/css">
+*{margin: 0;padding: 0;}
+a img{border: none;}
+.imagebox{
+    background: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    display: none;
+ }
+.image{ 
+     position: absolute; 
+     top:50%;    
+     border: 8px solid #fff;
+     left: 50%;
+     cursor: pointer;
+ }
+ .box{
+     background: #fff;
+     padding: 10px;
+     margin-left: 16px;
+     margin-top:16px;
+ }
+ .box-loading{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left:16px;
+    margin-top: 16px;
+ }
+</style>
+<!-- 引入 jQuery -->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <h1>图片展示</h1>
+	<!--<a href="javascript:void(0)" rel="lightbox-tour"  class="smallimg" id="smallimage">
+		<img src="http://www.nofm.cn/images/album/2014/1405834902_3.jpg" />
+	</a>
+	<div id="paramsTest" class="imagebox" style="display:none;">
+         <div class="box">
+             <img class="box-loading" align="middle" src="images/loading.gif"/>
+             <img src="" id="bigimage" align="middle" style="display:none;"/>
+         </div>
+	</div>-->
+    
+    
+    
+    
+    <a rel="lightBox" href="http://www.nofm.cn/images/album/2014/1405834902_4.jpg" class="smallimg" id="smallimage"><img src="http://www.nofm.cn/images/album/2014/1405834902_3.jpg" /></a>
+    
+    
+    
+<script type="text/javascript">
+/*	var big_iamge_link="http://www.nofm.cn/images/album/2014/1405834902_4.jpg";
+	$('#smallimage').click(function() {
+		$('#paramsTest').show();
+        showbig();
+        $('#bigimage').show();              
+	});
+    //加载大图并准备显示
+    function showbig(){
+        $('#bigimage').attr('src', big_iamge_link);
+        $('#bigimage')[0].onload=function(){
+            var height=$(window).height()-$('#bigimage').height();
+            var pos_top=parseInt(height)*0.5;
+            var width=$(window).width()-$('#bigimage').width();
+            var pos_left=parseInt(width)*0.5;
+            $('#bigimage').css('top', ""+pos_top+"px");
+            $('#bigimage').css('left', ""+pos_left+"px");  
+        }
+    }
+	$('#paramsTest').click(function() {
+		$('#paramsTest').hide();
+        $('#bigimage').hide();
+	});	
+    $('#bigimage').click(function() {
+        $('#paramsTest').hide();
+        $('#bigimage').hide();
+    });*/
+    
+    
+    $(function(){ 
+        $('a[rel="lightBox"]').click(imgLoading);
+        //重新绑定点击事件
+        function imgLoading(e){
+            e=e||event;
+            e.preventDefault();
+            var _html ='<img class="box-loading" align="middle" src="images/loading.gif"/>'+'<img src="" id="bigimage" align="middle" style="display:none;"/>';
+            var elem = $('<div>',{class:'imagebox',id:'paramsTest'}).appendTo('body').fadeIn();
+            elem.after($('<div>',{class:'box'}).css({
+                             position: 'fixed',
+                             top: '50%',
+                             left: '50%',
+                             'z-index':11,
+                }).html(_html));
+            //var elem = $(_html).appendTo('body').fadeIn();
+            //$('#paramsTest').fadeIn();
+            //加载图片
+            var $src =$(this).attr('href');
+            var objImagePreloader = new Image(); 
+            objImagePreloader.onload = function () { 
+                $('#bigimage').attr('src', $src);
+                _resize_container_image_box(objImagePreloader.width, objImagePreloader.height);
+                objImagePreloader.onload = function () { };
+            }; 
+            objImagePreloader.src = $src;
+            var $img = new Image();
+            objImagePreloader.src = $src;
+            function _resize_container_image_box(width,heigth){
+                //重新调整图片的大小
+                 var intCurrentWidth = $('.box').width();
+                 var intCurrentHeight = $('.box').height();
+                /* var intWidth = (intImageWidth + (settings.containerBorderSize * 2));
+                 var intHeight = (intImageHeight + (settings.containerBorderSize * 2));*/
+                 var intWidth=width;
+                 var intHeight = heigth;
+                 var intDiffW = intCurrentWidth - intWidth;
+                 var intDiffH = intCurrentHeight - intHeight;
+                 $('.box').animate({ width: intWidth, height: intHeight,marginLeft:'-'+(intWidth/2)+'px',marginTop:'-'+(intHeight/2)+'px' }, 400, function () {
+                     _show_image(); 
+                 });
+                 if ((intDiffW == 0) && (intDiffH == 0)) {
+                     $.browser.msie=$.browser.msie||(navigator.userAgent.toLowerCase()=="msie");//1.9以后不识别了 嘻嘻 源代码 有bug哦
+                     if ($.browser.msie){ 
+                         ___pause(250); 
+                     }
+                     else {
+                         ___pause(100); 
+                     } 
+                 }
+            }
+            function _show_image() { 
+                $('.box-loading').hide();
+                $('#bigimage').fadeIn(function () {
+                    _set_navigation(); 
+                }); 
+            };
+            function _set_navigation(){
+                //设置点击旁边 隐藏数据
+                $('#paramsTest,.box').click(function(){
+                    elem.next().remove().end().remove();
+                });
+            }
+            function ___pause(ms) {
+                var date = new Date(); curDate = null; do { var curDate = new Date(); }
+                while (curDate - date < ms);
+            };
+        }
+    });
+</script>
+</body>
+</html>

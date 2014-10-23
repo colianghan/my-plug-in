@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+        <!-- endbower  -->
+        <style>
+               .animate-show-hide.ng-hide-add, .animate-show-hide.ng-hide-remove {
+                    -webkit-transition:all linear 0.5s;
+                    -moz-transition:all linear 0.5s;
+                    -o-transition:all linear 0.5s;
+                    transition:all linear 0.5s;
+                    display:block!important;
+                }
+                .animate-show-hide.ng-hide-add.ng-hide-add-active,
+                .animate-show-hide.ng-hide-remove {
+                    opacity:0;
+                }
+                .animate-show-hide.ng-hide-add,
+                .animate-show-hide.ng-hide-remove.ng-hide-remove-active {
+                    opacity:1;
+                }
+                /*
+                   我们使用CSS过渡(transition)语句来为带有.repeated-item类的元素添加动画效果，他们将在各个条目新增和移动时触发。
+                */
+                .repeated-item.ng-enter, .repeated-item.ng-move {
+                  -webkit-transition:0.5s linear all;
+                  -moz-transition:0.5s linear all;
+                  -o-transition:0.5s linear all;
+                  transition:0.5s linear all;
+                  opacity:0;
+                }
+
+                /*
+                 用ng-enter-active和ng-move-active类来定义过渡效果的最终属性值，以便动画指令知道它最终该达到什么状态。
+                */
+                .repeated-item.ng-enter.ng-enter-active,
+                .repeated-item.ng-move.ng-move-active {
+                  opacity:1;
+                }
+
+                /*
+                  我们使用CSS关键帧(keyframe animation)语句来为带有.repeated-item类的元素定义移除动画(ng-leave)
+                */
+                .repeated-item.ng-leave {
+                  -webkit-animation:0.5s my_animation;
+                  -moz-animation:0.5s my_animation;
+                  -o-animation:0.5s my_animation;
+                  animation:0.5s my_animation;
+                }
+
+                @keyframes my_animation {
+                  from { opacity:1; }
+                  to { opacity:0; }
+                }
+
+                /*
+                  不幸的是，每个浏览器都需要用它自己的“方言”来定义关键帧动画
+                */
+                @-webkit-keyframes my_animation {
+                  from { opacity:1; }
+                  to { opacity:0; }
+                }
+
+                @-moz-keyframes my_animation {
+                  from { opacity:1; }
+                  to { opacity:0; }
+                }
+
+                @-o-keyframes my_animation {
+                  from { opacity:1; }
+                  to { opacity:0; }
+                }
+        </style>
+    </head>
+    <body ng-app="myapp">
+        <h1>这是angularJS动画Demo</h1>
+        <div ng-controller="contr">
+            <h2 ng-show="a" class="animate-show-hide" id="C">这是显示内容</h2>
+            <button ng-click="cli();" class="btn" >切换</button>
+            <div class="hero">
+                <ul>
+                    <li ng-repeat="item in ar track by $index" class="repeated-item">
+                       {{item}}
+                    </li>
+                </ul>
+                <button ng-click="add();" class="btn">添加</button>
+                <button ng-click="rem();" class="btn">删除</button>
+            </div>
+        </div>
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <!--endbower-->
+        <script>
+            var dm=angular.module('myapp',['ngAnimate']);
+            dm.controller('contr',function($animate,$timeout,$scope){
+                $scope.a=true;
+                $scope.cli=function(){
+                    $scope.a=!$scope.a;
+                    //$animate.addClass(angular.element('#C'),'zoomOutRight');
+                }
+                var _ar = $scope.ar=[1,2,3,4,5];
+                $scope.rem=function(){
+                    _ar.pop();
+                }
+                $scope.add=function(){
+                    _ar.push(1);
+                }
+            });
+        </script>
+    </body>
+</html>

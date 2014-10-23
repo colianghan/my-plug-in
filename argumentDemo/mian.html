@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="h1" onclick="cli(event,23);return false;">测试</h1>
+	<script>
+	   (function(win){
+	   	  //
+	   	  var ele= document.getElementById('h1');
+	   	  /*ele.onclick=function(e){
+	   	  	console.log(e+' '+arguments.length);
+	   	  }*/
+	   	  win.cli=function(){
+	   	  	console.log(arguments.length);
+	   	  	console.log(arguments[0]);
+	   	  }
+          ele.addEventListener('click',function(x,y){
+              console.log(arguments.length);
+              console.log(arguments[0]);
+              console.log(y);
+          })
+          var _el = document.createElement('h2');
+          _el.innerHTML="你好啊a";
+          ele.appendChild(_el);
+	   })(window);
+	   /*function cli(){
+	   	 //console.log(arguments.length);
+           for(var i=0;i<arguments.length;i++){
+               console.log(arguments[i]);
+           }
+	   }*/
+	   (function(win){
+	   	 var _obj=win._obj={
+	   	 	name:'nihao',
+	   	 	action:function(){alert('nihao')}
+	   	 }
+	   	 for(var attr in _obj){
+	   	 	console.log(_obj[attr]+','+attr+ ','+(attr in _obj));
+	   	 }
+	   })(window);
+	   Object.prototype.a=function(index){
+	   	  console.log(index);
+	   };
+
+	   (function(win){
+	   	 function cat(){
+	   	 	this.name="小猫";
+	   	 	this.age=2;
+	   	 	//console.log(this===cat.prototype);
+	   	 }
+	   	 var d = new cat();
+	   	 console.log(d.constructor===cat);
+	   	 console.log(d instanceof cat); 
+	   	 //cat.bind(win)();
+	   	  
+	   })(window);
+
+	   top:
+	    for (var i=0;i<3;i++){
+	        for (var j=0;j<3;j++){
+	            if (i===1 && j===1) break top;
+	            console.log("i="+i+",j="+j);
+	        }
+	    }
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.wrapper{
+		width: 1000px;
+		margin:10px auto;
+	}
+	.main{
+		width: 100%;
+	}
+	.main .content{
+		margin: 0 21%;
+	}
+	.slide1{
+		width: 20%;
+		margin-left:-100%;
+	}
+	.slide2{
+		width: 20%;
+		margin-left: -20%;
+	}
+	.left{
+		float: left;
+	}
+	.clear:after{
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		clear: both;
+	}
+	.main .content,.slide1 .content,.slide2 .content{
+		padding: 20px;
+		border: 2px dashed #000;
+	}
+</style>
+<body>
+	<div class="wrapper clear">
+		<div class="main left">
+			<div class="content">这是主模块，先加载</div>
+		</div>
+		<div class="slide1 left"><div class="content">侧边1</div></div>
+		<div class="slide2 left"><div class="content">侧边2</div></div>
+	</div>
+</body>
+</html>

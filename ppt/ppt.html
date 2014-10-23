@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>前端菜鸟眼里的设计</title>
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="hgl" />
+    <link href="css/base.css" type="text/css" rel="stylesheet" />
+</head>
+<body class="impress-not-supported" onmousewheel="return false;">
+<div id="impress">
+    <div id="bored" class="step " data-x="-1700" data-y="-1000" data-rotate="-30">
+        <div id="div1">
+            <div class="wrap">
+                <h1 id="pagetitle">前端菜鸟眼里的设计</h1>
+            </div>
+        </div>
+    </div>
+    <div class="step slide"  data-x="-1200" data-y="-2800" data-rotate="-60">
+         <div id="div1">
+            <div class="wrap">
+                <div class="firstpage">
+                        <h2>用一句话形容前端和UI设计 ——</h2>
+                        <p class="disc-ui">"在前端眼里，UI设计稿是动态的!"</p>
+                        <p class="my-viewpoint">我觉得，UI是用PS/AI等这些设计工具展示效果，而前端，则是用浏览器展示。</p>
+                 </div>	
+             </div>
+          </div>
+    </div>
+    
+	 <div class="step slide"  data-x="-3000" data-y="-2400" data-rotate="-60">
+         <div id="div1">
+            <div class="wrap">
+                <div class="firstpage">
+                    <div class="main"> 
+                    <div class="main1"></div> 
+                    <div class="main2"></div> 
+                    <div class="main3"></div> 
+                    <div class="main4"></div> 
+                    <div class="main5"></div> 
+                    <div class="main6"></div> 
+                    <div class="main7"></div> 
+                    <div class="main8"></div> 
+                    <div class="main9"></div> 
+                    <div class="main10"></div> 
+                    <div class="main11"></div> 
+                    <div class="main12"></div> 
+                    <div class="main13"></div> 
+                    <div class="main14"></div> 
+                    <div class="main15"></div> 
+                    <div class="main16"></div> 
+                    <div class="main17"><span>图层时代</span></div> 
+                    <span class="main18"></span> 
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    
+    <div class="step slide" data-x="0" data-y="-1500">
+        <div id="div1">
+            <div class="wrap">	
+                <div class="secondpage">
+                    <h2>我们眼里的世界 ——</h2>
+                    <ul class="disc-ul">
+                        <li class="PM">在公交地铁站边看到的巨幅广告图片</li>
+                        <li><i class="PM">PM </i>眼中第一感觉是：这个设计不错！这个效果不错！为什么要这样设计呢？会吸引用户吗？</li>
+                        <li><i class="PM">UI </i>眼中第一感觉是：这需要多少图层能完成？那个图片处理需要蒙板！这字体很不错！</li>
+                        <li><i class="PM">前端 </i>眼中第一感觉是：如果把这个图片重构为 HTML 页面布局该如何？标签怎样嵌套会优化？CSS 兼容性又是如何？动态效果该如何？</li>		
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="step slide" data-x="1500" data-y="-1500">
+        <div id="div1">
+            <div class="wrap">
+                <div class="thirdpage">
+                    <h2>前端与产品经理之间的交流 ——</h2>
+                    <ul class="disc-ul">
+                        <li>PM：这个滑动效果能实现吗?</li>
+                        <li>前端：能</li>
+                        <li>PM：这个按钮点击的交互呢?</li>
+                        <li>前端：能</li>
+                        <li>PM：那这个背景色有圆角有阴影而且半透明，Hover之后有旋转效果的层呢?</li>
+                        <li>前端：额…</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step slide" data-x="3000" data-y="-1500">
+       <div id="div1">
+            <div class="wrap">	
+                <div class="fourthpage">
+                    <h2>解释一下前端回答的两个能与一个额 ——</h2>
+                    <ul class="disc-ul">
+                        <li class="PM">PM：这个滑动效果能实现吗? 这个按钮点击的交互呢?</li>
+                        <li>
+                            <b>前端补脑</b>
+                            <b>* 涉及到样式(css)和交互(js)</b>
+                            <b>* 页面布局能通过的浏览器：IE8 + Firefox3.5 + Chrome 9 + 等等</b>
+                            <b>* IE7需要写个 hack(PS：幸好不用兼容IE6)</b>
+                            <b>* 或许要新写响应式 CSS 来兼容移动设备</b>
+                            <b>* (能)</b>
+                        </li>
+                        <li class="PM">PM：那这个背景色有圆角有阴影而且半透明，Hover之后有旋转效果的层呢?</li>
+                        <li>额…(补脑中：如果是用 HTML5 与 CSS3 实现，so easy，但是  IE7，其实不建议做这么炫的效果。)</li>
+                        <li>前端：建议在主流浏览器上将效果展现到最佳，而低版本浏览器上不影响客户使用(优雅降级思想)。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="step slide" data-x="4500" data-y="-1500">
+        <div id="div1">
+            <div class="wrap">	
+                <div class="fifthpage">
+                    <h2>前端与UI之间的关系 ——</h2>
+                        <p class="PM relation">以前端的角度看设计，或是以设计的角度看前端，公婆之争罢了，事事都是在矛盾中前行，阴阳只是互补，没有矛盾，没有阴阳，亦不会进步。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="step slide" data-x="6000" data-y="-1500">
+       <div id="div1">
+            <div class="wrap">	
+                <div class="sixthpage">
+                    <h2>前端与UI如何更好的协作 ——</h2>
+                    <h1 class="PM">沟 通</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="step more" data-x="6000" data-y="1000" data-rotate="180" data-scale="3" data-rotate="90">
+        <div id="div1">
+            <div class="wrap">
+                <div class="seventhpage">
+                    <h2>总结一下子 ——</h2>
+                    <ul class="disc-ul">
+                        <li>1. 网站的页面是动态的。photoshop呈现的是静态的东西，而网站页面是动态的展现内容、布局和交互。设计师过多关注用户体验层面，很难对所有的细节做到面面俱到。而前端（包括开发）需要照顾到所有的功能点涉及到的页面，因此在前期要考虑的尽量周全，别让别人帮我们收拾烂摊子。</li>
+                        <li>2. 关注新技术。网页设计缺少技术支持永远只是艺术。设计师必须经常关注新的技术和交互方式，这样才能在设计的时候提供多种解决方案，才能权衡利弊找到最优化的方案。</li>
+                        <li>3. 界面元素的标准化和统一。前端关注代码的可重用性，设计师关注新创意。因此在设计前期就要考虑哪些元素和交互方式既可以满足用户体验又能够被重复使用，以此来提高效率。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="step" data-x="1500" data-y="1000" data-rotate="-180" data-scale="3">
+        <div id="div1">
+            <div class="wrap">
+                <div class="eightthpage">
+                    <h2>总结一下子(续) ——</h2>
+                    <ul class="disc-ul">
+                        <li>4. 团队合作很重要。设计师很容易沉浸在自己的小世界里不能自拔，这是我们经常犯的通病。“沟通”是团队合作的关键，一切皆在沟通。</li>
+                        <li>5. 相信自己。前端通常出于不同的原因对一些交互方式可行性做出判断，比如代码复杂程度，技术可实现性等等。好的设计师需要有一些超前意识和冒险精神，当他们受 新技术的激发，认为它能够大大提升用户体验的时候，就需要把它当作挑战来实现。在对技术的深入了解后去说服前端一起努力实现。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="step" data-x="1000" data-y="4000" data-rotate="-180" data-scale="3">
+       <div id="div1">
+            <div class="wrap">
+                <h1 class="thanks">谢 谢 观 赏</h1>	
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/impress.js"></script>
+<script>
+	impress().init();
+</script>
+
+</body>
+</html>
+
+
+
+
+

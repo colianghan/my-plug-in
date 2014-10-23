@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+body{
+    width: 1170px;
+    font-family: "宋体";
+    min-height: 700px;
+    margin: 30px auto;
+}
+
+.scroll-content{
+    width: 700px;
+    height: 95px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+.scroll-content ul li{
+    float: left;
+    /*height: 200px;*/
+    /*line-height: 20px;*/
+    margin-bottom: 10px;
+    width: 800px;
+}
+.clear-fix{
+    overflow: hidden;
+    *zoom:1;
+}
+.clear-fix:after{
+    display: block;
+    content: '.';
+    visibility: hidden;
+    clear: both;
+    line-height: 1px;
+    height: 0;
+}
+/*.left{float: left;width: 20px;}
+.right{float: right;width: 800px;}*/
+.dn{display: none;}
+.main li{float: left;height: 95px;}
+.mr5{margin-right: 15px;}
+.wrapper{width: 835px;height: 95px;}
+/*最外层边框*/
+.weixin-content{
+    margin: 10px auto;
+    border: 1px solid #ddd;
+}
+.left{float: left;}
+.right{float: right;}
+.p10{padding:10px;}
+.pbt30{padding-bottom: 30px;}
+.p5-10{padding: 5px 10px;}
+.content .left{width: 1.5em;}
+.content .right{width: 770px;vertical-align: middle;}
+.content .right p{width: 650px;font-size: 13px;line-height: 20px;}
+.mg10-20{margin: 10px 20px;}
+/*点击详情*/
+.detail{
+    color: #000;
+    text-decoration: none;
+}
+.detail:hover{
+    color: red;
+    text-decoration: underline;
+}
+/*小猪*/
+.pig{
+text-align: center;
+margin-top: -40px;
+margin-left: 400px;}
+
+.pig img,.weixin{border: 1px solid #fff;}
+.pig img:hover,.weixin:hover{border: 1px solid red;cursor: pointer;}
+.word-transform{ -webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-o-transform: rotate(90deg);-ms-transform: rotate(90deg);transform: rotate(90deg);writing-mode: tb-rl; display: block;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+  <link href="bootstrap.css" media="screen" rel="stylesheet" />
+</head>
+<body>
+    <div class="well container" ng-controller="mianController" ng-init="a=[2,3,4]">
+        <div class="hero-unit">
+            <input type="text" class="span10" ng-model="a1.word"> 
+            <h1>hello {{a1.word | lowercase}}!</h1>
+            <!--<ul ng-repeat="phone in phones | filter:a1.word">
+                <li>name: {{phone.name}} age:{{phone.age}}</li>
+            </ul>--> 
+            <ul>
+                <li ng-repeat="b in a">
+                    <p>【{{$index}}】 {{b}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- form表单控件-->
+    <form name="form" ng-controller="form_ctri" ng-init="o=[{value:0,description:'你好啊',g:'+'},{value:1,description:'nihaoa1',g:'+'},{value:2,description:'你好啊1',g:'='}];a=o[0].value;">
+        <input type="email" ng-model="Email" />
+        <input type="number"/>
+        <span>{{form.$error}}</span>
+        <select ng-model="a" ng-options="x.value as x.description group by x.g for x in o">  
+            <option value="">可以加这个空值</option>  
+        </select>
+        
+        <select ng-model="a" ng-options="v as k for (k,v) in b">
+        </select>
+    </form>
+    <!-- ngSwitch-->
+    <ul ng-init="a=true;" ng-switch="a" ng-click="a=!a;">
+        <li ng-switch-when="true">a=true</li>
+        <li ng-switch-when="false">a=false</li>
+        <li ng-switch-default>{{a}}</li>
+    </ul>
+    
+    
+    <div ng-controller="TestCtrl">
+
+    {{ data | orderBy: 'age' }} <br />
+
+    {{ data | orderBy: '-age' }} <br />
+
+    {{ data | orderBy: '-age' | limitTo: 2 }} <br />
+
+    {{ data | orderBy: ['-age', 'name'] }} <br />
+    
+  </div>
+    
+    <!-- table -->
+    <table ng-controller = "TestCtrl" class="container well">
+        <tr>
+           <th ng-click="f='name';a=!a">名字</th>
+           <th ng-click="f='age';a=!a">年龄</th>
+        </tr>
+        <tr ng-repeat="o in data | orderBy:f:a">
+            <td>{{o.name}}</td>
+            <td>{{o.age}}</td>
+        </tr>
+    </table>
+    
+    <div ng-controller="TestCtrl" ng-init="s=data[0].name; q=''" class="container well">
+
+    <div>
+
+      <span>查找：</span> <input type="text" ng-model="q" />
+
+    </div>
+
+    <select ng-multiple="flase" ng-model="s"
+
+            ng-options="o.name as o.name + '(' + o.age + ')' for o in data | filter: {name: q} | orderBy: ['age', 'name'] ">
+
+    </select>
+
+  </div>
+
+    <div id="test" ng-controller="TestCtrl"></div>
+    
+    <code>
+        public a(){};
+    </code>
+   
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    <script src="bootstrap.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+    <script type="text/javascript">
+        /*var dm= angular.module('mainTest',[]).controller('mianController',function($scope,$http,$rootScope,$element)         {
+            $scope.a1={};
+            $scope.a1.word='word';
+            $scope.a=[1,2];
+            console.log($scope.a);
+            console.log($rootScope.a);
+            console.log($element.append('<p>你好啊</P>'));
+        });*/
+        var mianController =function($scope){
+            $scope.a1={};
+            $scope.a1.word='world';
+        }
+        //angular.bootstrap($('#ng-app'),['mainTest']);  与ng-app 互斥 不能同时出现在页面内
+       /* var dm = angular.module('test');
+        dm.controller('ctrl',function($scop){
+            $scop.phones=[
+                {"name": "Nexus S",
+             "snippet": "Fast just got faster with Nexus S.",
+             "age": 0},
+            {"name": "Motorola XOOM™ with Wi-Fi",
+             "snippet": "The Next, Next Generation tablet.",
+             "age": 1},
+            {"name": "MOTOROLA XOOM™",
+             "snippet": "The Next, Next Generation tablet.",
+             "age": 2}
+            ];
+        });*/
+       /* function ctrl($scop)
+        {
+          $scop.phones = [
+            {"name": "Nexus S",
+             "snippet": "Fast just got faster with Nexus S.",
+             "age": 0},
+            {"name": "Motorola XOOM™ with Wi-Fi",
+             "snippet": "The Next, Next Generation tablet.",
+             "age": 1},
+            {"name": "MOTOROLA XOOM™",
+             "snippet": "The Next, Next Generation tablet.",
+             "age": 2}
+          ];
+        }*/
+        var form_ctri=function($scope){
+            $scope.b={a:1,b:2};
+        }
+        
+        var TestCtrl =function($scope){
+            $scope.data = [
+              {name:'B', age:4},  
+
+              {name:'A', age:1},  
+
+              {name:'D', age:3},  
+
+              {name:'C', age:3},  
+
+            ];
+        }
+                
+       var a={name:'123'};
+       var b=angular.copy(a);
+       a.name="1233";
+       console.log(b.name);
+                
+                
+                
+                
+ var pp =function(){
+
+    this.$get =function(){
+
+      return {'haha':'123'};
+
+    }
+
+  }
+
+  
+
+  //我在模块的初始化过程当中, 定义了一个叫 PP 的服务
+
+  var app = angular.module('Demo', [], function($provide){
+
+    $provide.provider('PP', pp);
+
+  });
+
+  
+
+  //PP服务实际上就是 pp 这个 provider 的 $get() 方法返回的东西
+
+  app.controller('TestCtrl',
+
+    function($scope, PP){
+
+      console.log(PP);
+
+    }
+  );
+
+  angular.bootstrap($('#test'),['Demo']);
+
+                
+                
+                
+                
+                
+
+    </script>
+</body>
+</html>

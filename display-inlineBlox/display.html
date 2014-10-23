@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display:inline-block</title>
+</head>
+<style>
+     *{
+     	word-wrap:break-word;
+     }
+	.wrapper{
+		width: 990px;
+		margin: 0 auto;
+		white-space: nowrap;
+		word-wrap:normal;
+	}
+	.item{
+		display: inline-block;
+		width: 990px;
+		height: 400px;
+		background: #ccc;
+		*zoom:1;
+		*display: inline;
+	}
+	.item:first-child{
+		background: red;
+	}
+	.red, .green, .blue {
+	  position: absolute;
+	  display: block;
+	  width: 400px;
+	  height: 400px;
+	}
+	.red {
+	  background: red;
+	  z-index: 1;
+	}
+	.green {
+	  background: green;
+	}
+	.blue {
+	  background: blue;
+	}
+	 .first{
+		opacity: .99;
+		filter:alpha(opacity=90);
+	} 
+	 div{width: 100px;height: 100px;}
+     #a{background:red;position: relative;}
+	 #b{background:blue;margin-left:20px;margin-top:-80px;opacity: 0.9;}
+	 #c{background:green;margin-left:40px;margin-top:-80px;}
+</style>
+<body>
+	<div class="wrapper">
+    	<div class="item"></div>
+    	<div class="item"></div>
+    </div>
+	<div class="first">
+ 	  <span class="red">Red</span>
+ 	</div>
+ 	<div>
+ 	  <span class="green">Green</span>
+ 	</div>
+ 	<div>
+ 	  <span class="blue">Blue</span>
+ 	</div>
+	 <div id="a"><p>a</p></div>
+	 <div id="b"><p>b</p></div>
+	 <div id="c"><p>c</p></div>
+
+</body>
+</html>

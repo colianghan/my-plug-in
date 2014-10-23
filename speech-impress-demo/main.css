@@ -1,0 +1,30 @@
+.step h1{
+	text-align: center;
+}
+header{
+	text-align: center;
+}
+header + ul{
+	text-align: center;
+}
+header + h1{
+	margin-bottom: 20px;
+}
+.pull-left header{
+	border-bottom: cyan 3px solid;
+}
+.step>header{
+	font-size: 3.5em;
+	line-height: 1.1em;
+	text-align: center;
+}
+.pull-left{
+	float: left;
+}
+.w-half{
+	width: 50%;
+	box-sizing: border-box;
+}
+.step.more{
+	width: 1300px;
+}

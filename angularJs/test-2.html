@@ -1,0 +1,47 @@
+<!DOCTYLE html>
+<html xml:lang="en" xmlns:ng="http://angularjs.org" id="ng-app">
+    <head>
+      <meta charset="UTF-8">
+      <title>Document</title>
+      <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+      <link href="bootstrap.css" media="screen" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container-fluid well" ng-controller="text">
+            <div class="row-fluid">
+                <div class="span3">
+                    <input type="text" class="span10" ng-model="searchPhone" />
+                </div>
+                <div class="span9">
+                    <ul>
+                        <li ng-repeat="phone in phones | filter:searchPhone">{{phone.name}}<p>{{phone.description}}</p></li>
+                        <li ng-if="results.length == 0">
+                            <p>this is no data.</p>
+                        </li>
+                    </ul>
+                    <div>{{searchPhone}}</div>
+                </div>
+            </div>
+        </div>
+        <script src="bootstrap.js"></script>
+        <script src="angular.min.js"></script>
+        <script src="angular-route.min.js"></script>
+        <script type="text/javascript">
+           var dm =angular.module('phoneMain',[]);
+           dm.controller('text',['$scope',function($scope){
+               $scope.phones=[{
+                   name:'apple',
+                   description:'this is apple'
+               },{
+                   name:'korea',
+                   description:'this is korea'
+               },{
+                   name:'oppo',
+                   description:'this is oppo'
+               }];
+               $scope.searchPhone="www";
+           }]);
+           angular.bootstrap($('#ng-app'),['phoneMain']);
+        </script>
+    </body>
+</html>

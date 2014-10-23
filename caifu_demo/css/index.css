@@ -1,0 +1,190 @@
+*{
+	margin:0;
+	padding: 0;
+	word-break:brea-all;
+	word-nowrap:word-break;
+	list-style: none;
+	font-size: 100%;
+	text-decoration: none;
+}
+
+body{
+	background-color: #fff;
+	width: 100%;
+	height: auto;
+	font-size: 20px;
+	color: #fff;
+	font-family: "微软雅黑";
+	min-width: 1440px;
+	_width:1440px;
+}
+a{
+	color: #fff;
+}
+a img{
+	border: none;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clear:before,
+.clear:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.clear:after {
+  clear: both;
+}
+
+.left{
+	float: left;
+	*zoom:1;
+	*display: inline;
+}
+.right{
+	float: right;
+}
+.yellowFont{
+	color: #fded02;
+}
+.f22{
+	font-size: 22px;
+}
+.f20{
+	font-size: 20px;
+}
+.wrapper{
+	max-height: 2760px;
+	overflow: hidden;
+}
+
+.logo{
+	text-indent: -19999px;
+	width: 426px;
+	height: 59px;
+	background: url('img/logo.png');
+	position: absolute;
+	left: 224px;
+	top:0;
+}
+.weixin{
+	position: absolute;
+	right: 315px;
+	bottom: 125px;
+}
+.header{
+	background: url('img/banner.jpg') no-repeat center;
+	height: 633px;
+	position: relative;
+	max-width: 1440px;
+	margin:0 auto;
+}
+
+.body{
+	background: url('img/body-1.png') no-repeat;
+	height: 2436px;
+	width: 1440px;
+	margin: 0 auto;
+	position: relative;
+	top: -279px;
+}
+/* 开户专区 */
+.kaitong{
+	position: absolute;
+	left: 582px;
+	top: 90px;
+	font-size: 23px;
+}
+/* 立即开通 */
+.liji{
+	position: absolute;
+	left: 430px;
+	top: 183px;
+	font-size: 36px;
+}
+.kaitong img, .liji img{
+	margin-left: 20px;
+	vertical-align: middle;
+}
+/* 立即开通 */
+.kaitongArea{
+	position: absolute;
+	top: 330px;
+	left: 300px;
+}
+.kaitongArea img{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.kaitongArea h2{
+	text-align: center;
+}
+.kaitongArea p{
+	font-size: 16px;
+	line-height: 25px;
+	padding-left: 10px;
+}
+
+/* howto */
+.howto{
+	position: absolute;
+	top: 1010px;
+	left: 300px;
+	margin-left: 50px;
+	padding-top: 27px;
+	width: 860px;
+}
+.howto img{
+	display: block;
+	margin: 25px auto 40px auto;
+	width: 421px;
+}
+.howto p{
+	width: 795px;
+	text-indent: 2em;
+}
+.howto .section{
+	margin-top: 25px;
+}
+.howto .section span{
+	color: #fff;
+}
+
+.howto .section span a{
+	margin-left: 10px;
+}
+
+.konwledge{
+	position: absolute;
+	bottom: 230px;
+	left: 350px;
+	width: 760px;
+}
+.konwledge h2{
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+.konwledge p{
+	line-height: 30px;
+}
+.footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 151px;
+	background: #5d34aa;
+}
+.footer img{
+	display: block;
+	margin: 60px auto;
+}
+
+p a,span a{
+	color:#00acee;
+}

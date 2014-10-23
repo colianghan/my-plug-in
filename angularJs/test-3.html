@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+
+   <html ng-app="Demo">
+
+   <head>
+
+   <meta charset="utf-8" />
+
+   <title>AngularJS</title>
+
+  </head>
+
+   <body>
+
+ 
+
+   <div ng-controller="TestCtrl">
+
+     <span ng-click="go()">{{ a }}</span>
+
+   </div>
+
+  
+
+   <!--<script type="text/javascript"
+
+     src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+
+   </script>
+
+   <script type="text/javascript"
+
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js">
+
+   </script>-->
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+       <script src="angular.min.js"></script>
+        <script src="angular-route.min.js"></script>
+ 
+
+   <script type="text/javascript">
+
+   var app = angular.module('Demo', [], angular.noop);
+
+  app.controller('TestCtrl', function($scope, $timeout){
+
+     $scope.a ='点击我开始';
+
+  
+
+     var defer = $.Deferred();
+
+     var f =function(){
+
+       if($scope.a ==''){$scope.a ='已停止'; return}
+
+       defer.done(function(){
+
+         $scope.a.length <10? $scope.a +='>': $scope.a ='>';
+
+        $timeout(f, 100);
+
+     });
+
+     }
+
+    defer.done(function(){$scope.a ='>'; f()});
+
+   
+
+    $scope.go =function(){
+
+      defer.resolve();
+
+     $timeout(function(){$scope.a =''}, 5000);
+
+     }
+
+   });
+
+  </script>
+
+   </body>
+
+ </html>
+

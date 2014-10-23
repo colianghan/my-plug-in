@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta rel="author" content="korealiang">
+        <style type="text/css" media="screen">
+          *{
+          	margin: 0;
+          	padding: 0;
+          }
+          .wrapper{
+          	width: 1000px;
+          	margin: 10 auto;
+          }
+          .main,.main1{
+          	width: 100%;
+          }
+          .main .content{
+          	margin-left: 1%;
+          }
+          .slide{
+          	width: 20%;
+            margin-left: -100%;
+          }
+          .main .content,.slide .content,.main1 .content,.slide1 .content{
+          	padding: 20px;
+          	border:2px dashed #000;
+          }
+
+          .main1 .content{
+            margin-right: 21%;
+          }
+          .slide1 {
+            width: 20%;
+            margin-left: -20%;
+          }
+
+          .right{
+              float:right;
+          }
+          .clear:after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            clear: both;
+          }
+
+        </style>
+        <!-- inject:css -->
+        <!-- endinject -->
+    </head>
+    <body>
+        <div class="wrapper clear">
+            <div class="right main"><div class="content">我是主体内容main, 我先右浮动, 然后在DOM结构中我始终优先加载</div></div>
+            <div class="right slide"><div class="content">我是side, 我后右浮动, 然后我后加载</div></div>
+        </div>
+        <div class="wrapper clear" style="margin-top:10px">
+          <div class="right main1">
+            <div class="content">我是主体内容main, 我先右浮动, 然后在DOM结构中我始终优先加载</div>
+          </div>
+          <div class="right slide1">
+            <div class="content">我是side, 我后右浮动, 然后我后加载</div>
+          </div>
+        </div>
+    </body>
+</html>

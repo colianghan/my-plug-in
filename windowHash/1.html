@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+  <ul id="countnavtab">
+    <li><a href="2.html#tag=2" data-tag="2">2.html</a></li>
+    <li><a href="1.html#tag=1" data-tag="1">1.html</a></li>
+  </ul>
+  <script type="text/javascript">
+     $(
+         function(){
+             var tag =window.location.hash.replace('#','');
+       /*  if(tag=='tag=1')
+         {
+             //1.html
+             $('[data-tag="1"]').addClass('name');
+         }
+         else if(tag=='tag=2')
+         {
+             $('[data-tag="1"]').addClass('name');
+         }
+      */
+      
+        switch(tag)
+        {
+            case 'tag=2':
+                 $('[data-tag="2"]').addClass('name');
+                 break;
+            case 'tag=1':
+            default: 
+                $('[data-tag="1"]').addClass('name');
+                break;
+        } 
+         }
+        
+     )
+  </script>
+</body>
+</html>
