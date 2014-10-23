@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+  <ul id="countnavtab">
+    <li><a href="javascript:;" class="name">111</a></li>
+    <li><a href="javascript:;">2222</a></li>
+  </ul>
+  <script type="text/javascript">
+      $(
+          
+          function(){
+              $('#countnavtab li a').click(function(){
+                  //$('#countnavtab .name').addClass('name').silblings('.name').removeClass('name');
+                  //$(this).hasClass('name')||$(this).addClass('name').siblings('.name').removeClass('name');
+                  $(this).hasClass('name')||
+                      (function(wind){
+                          var ul =$('#countnavtab li a');
+                          ul.filter('.name').removeClass('name');
+                          $(wind).addClass('name');
+                      })(this);
+              });
+          }
+       )
+  </script>
+</body>
+</html>
