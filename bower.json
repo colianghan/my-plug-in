@@ -1,0 +1,30 @@
+{
+  "name": "handlebars_test",
+  "version": "0.0.1",
+  "authors": [
+    "colianghan(admin@colinhanks.me)"
+  ],
+  "description": "gulp handlebars",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "gulp",
+    "handlebars"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~4.0.3",
+    "backbone": "~1.2.3"
+  }
+}
