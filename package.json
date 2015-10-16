@@ -13,6 +13,7 @@
   "author": "colianghan",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.9.11",
     "gulp": "^3.9.0",
     "gulp-declare": "^0.3.0",
     "gulp-handlebars": "^4.0.0",

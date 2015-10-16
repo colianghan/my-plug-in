@@ -8,8 +8,12 @@ var wrap = require('gulp-wrap');
 
 var declare = require('gulp-declare');
 
+var browserSync = require('browser-sync');
 
-gulp.task('compile',function(){
+var reload = browserSync.reload;
+
+
+gulp.task('template',function(){
 	gulp.src('handlebars/header.hbs')
 		.pipe(handlebars({
 			handlebars:require('handlebars')
@@ -23,7 +27,7 @@ gulp.task('compile',function(){
 		.pipe(gulp.dest('./'))
 })
 
-gulp.task('par',function(){
+gulp.task('partial',function(){
 	gulp.src('handlebars/footer.hbs')
 		.pipe(handlebars({
 			handlebars:require('handlebars')
@@ -37,3 +41,17 @@ gulp.task('par',function(){
 		//.pipe(rename('footer.js'))
 		.pipe(gulp.dest('./'))
 })
+
+
+gulp.task('watch',function(){
+	gulp.watch('handlebars/*.hbs',['template','partial',reload]);
+})
+
+gulp.task('server',['watch'],function(){
+	browserSync({
+		server:{
+			baseDir:'./'
+		},
+		open:true
+	});	
+});

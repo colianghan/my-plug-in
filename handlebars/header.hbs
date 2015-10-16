@@ -1,5 +1,27 @@
+{{#> header }}
+	this is the header;
+{{/header}}
 <section>
 	<h1>{{title}}</h1>
 	<p>{{description}}</p>
+	{{#a '百度' 'http://www.baidu.com' class='text'}}{{/a}}
+	<p>this is the reload</p>
+	<p>
+		pptp:
+		用户名：prerabale
+		密码：kuajie8402
+		ip: 104.236.168.31
+	</p>
+	<ul>
+	{{#each arr}}
+		{{#*inline 'li'}}
+			{{log name }}
+			<li>{{name}}的年龄是{{lookup ../description}},测试{{zh}}</li>
+		{{/inline}}
+		{{> li zh=../title}}
+	{{/each}}
+	</ul>
 </section>
-{{> footer}}
+{{#> footer}}
+	hello world footer
+{{/footer}}
