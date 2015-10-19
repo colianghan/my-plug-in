@@ -14,11 +14,7 @@
 	</p>
 	<ul>
 	{{#each arr}}
-		{{#*inline 'li'}}
-			{{log name }}
-			<li>{{name}}的年龄是{{lookup ../description}},测试{{zh}}</li>
-		{{/inline}}
-		{{> li zh=../title}}
+		<li>{{name}}的年龄是{{lookup ../description}},测试{{zh}}</li>
 	{{/each}}
 	</ul>
 </section>

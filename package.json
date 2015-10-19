@@ -19,6 +19,8 @@
     "gulp-handlebars": "^4.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-wrap": "^0.11.0",
-    "handlebars": "^4.0.3"
+    "handlebars": "^4.0.3",
+    "handlebars-loader": "^1.1.4",
+    "webpack": "^1.12.2"
   }
 }
