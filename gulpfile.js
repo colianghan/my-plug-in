@@ -32,7 +32,7 @@ gulp.task('partial',function(){
 		.pipe(handlebars({
 			handlebars:require('handlebars')
 		}))
-		.pipe(wrap('Handlebars.registerPartial(\'footer\',Handlebars.template(<%= contents %>))'))
+		.pipe(wrap('Handlebars.registerPartial("<%= name %>",Handlebars.template(<%= contents %>))'))
 		.pipe(declare({
 			namespace:'par',
 			noRedeclare:true,
