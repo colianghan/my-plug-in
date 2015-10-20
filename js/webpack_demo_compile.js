@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("test_libray", [], factory);
+	else if(typeof exports === 'object')
+		exports["test_libray"] = factory();
+	else
+		root["test_libray"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -42,22 +52,28 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/*!****************************!*\
+  !*** ./js/webpack_demo.js ***!
+  \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var header = __webpack_require__(1);
+	var header = __webpack_require__(/*! ../handlebars/test.hbs */ 1);
+
+	// require('./a');
+	// require('./b');
 
 	~ function init() {
-		// var data = {
-		// 	title:'hello webpack',
-		// 	hello:'test hello'
-		// }
-		var data = {title:'hello',description:'world',arr:[
-		{name:'张三',age:10},
-		{name:'李四',age:20},
-		{name:'候五',age:30}
-	],arr_1:[{name:'张三',age:14},
-		{name:'李四',age:25},
-		{name:'候五',age:36}]};
+		var data = {
+			title:'hello webpack',
+			hello:'test hello'
+		}
+	// 	var data = {title:'hello',description:'world',arr:[
+	// 	{name:'张三',age:10},
+	// 	{name:'李四',age:20},
+	// 	{name:'候五',age:30}
+	// ],arr_1:[{name:'张三',age:14},
+	// 	{name:'李四',age:25},
+	// 	{name:'候五',age:36}]};
 		var _header = header(data);
 		document.write(_header);
 		document.close();
@@ -65,52 +81,41 @@
 
 /***/ },
 /* 1 */
+/*!*****************************!*\
+  !*** ./handlebars/test.hbs ***!
+  \*****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(2);
+	var Handlebars = __webpack_require__(/*! ./~/handlebars/runtime.js */ 2);
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-	    return "	this is the header;\r\n";
-	},"3":function(container,depth0,helpers,partials,data) {
 	    return "";
-	},"5":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var alias1=container.lambda, alias2=container.escapeExpression;
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1;
 
-	  return "		<li>"
-	    + alias2(alias1((depth0 != null ? depth0.name : depth0), depth0))
-	    + "的年龄是"
-	    + alias2(helpers.lookup.call(depth0 != null ? depth0 : {},(depths[1] != null ? depths[1].description : depths[1]),{"name":"lookup","hash":{},"data":data}))
-	    + ",测试"
-	    + alias2(alias1((depth0 != null ? depth0.zh : depth0), depth0))
-	    + "</li>\r\n";
-	},"7":function(container,depth0,helpers,partials,data) {
-	    return "	hello world footer\r\n";
-	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {};
-
-	  return ((stack1 = container.invokePartial(__webpack_require__(1),depth0,{"name":"header","fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-	    + "<section>\r\n	<h1>"
-	    + alias2(alias1((depth0 != null ? depth0.title : depth0), depth0))
-	    + "</h1>\r\n	<p>"
-	    + alias2(alias1((depth0 != null ? depth0.description : depth0), depth0))
-	    + "</p>\r\n	"
-	    + ((stack1 = __webpack_require__(21).call(alias3,"百度","http://www.baidu.com",{"name":"a","hash":{"class":"text"},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\r\n	<p>this is the reload</p>\r\n	<p>\r\n		pptp:\r\n		用户名：prerabale\r\n		密码：kuajie8402\r\n		ip: 104.236.168.31\r\n	</p>\r\n	<ul>\r\n"
-	    + ((stack1 = helpers.each.call(alias3,(depth0 != null ? depth0.arr : depth0),{"name":"each","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "	</ul>\r\n</section>\r\n"
-	    + ((stack1 = container.invokePartial(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"f:\\myPlugin\\handlbars_text\\handlebars\\footer.hbs\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())),depth0,{"name":"footer","fn":container.program(7, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
-	},"usePartial":true,"useData":true,"useDepths":true});
+	  return "<h1>"
+	    + container.escapeExpression(container.lambda((depth0 != null ? depth0.title : depth0), depth0))
+	    + "</h1>\r\n<p>"
+	    + ((stack1 = __webpack_require__(/*! ./js/a.js */ 21).call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.hello : depth0),{"name":"a","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "</p>";
+	},"useData":true});
 
 /***/ },
 /* 2 */
+/*!*********************************!*\
+  !*** ./~/handlebars/runtime.js ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// Create a simple path alias to allow browserify to resolve
 	// the runtime on a supported path.
-	module.exports = __webpack_require__(3)['default'];
+	module.exports = __webpack_require__(/*! ./dist/cjs/handlebars.runtime */ 3)['default'];
 
 
 /***/ },
 /* 3 */
+/*!*****************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars.runtime.js ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -124,30 +129,30 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	var _handlebarsBase = __webpack_require__(4);
+	var _handlebarsBase = __webpack_require__(/*! ./handlebars/base */ 4);
 
 	// Each of these augment the Handlebars object. No need to setup here.
 	// (This is done to easily share code between commonjs and browse envs)
 
 	var base = _interopRequireWildcard(_handlebarsBase);
 
-	var _handlebarsSafeString = __webpack_require__(18);
+	var _handlebarsSafeString = __webpack_require__(/*! ./handlebars/safe-string */ 18);
 
 	var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
 
-	var _handlebarsException = __webpack_require__(6);
+	var _handlebarsException = __webpack_require__(/*! ./handlebars/exception */ 6);
 
 	var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
 
-	var _handlebarsUtils = __webpack_require__(5);
+	var _handlebarsUtils = __webpack_require__(/*! ./handlebars/utils */ 5);
 
 	var Utils = _interopRequireWildcard(_handlebarsUtils);
 
-	var _handlebarsRuntime = __webpack_require__(19);
+	var _handlebarsRuntime = __webpack_require__(/*! ./handlebars/runtime */ 19);
 
 	var runtime = _interopRequireWildcard(_handlebarsRuntime);
 
-	var _handlebarsNoConflict = __webpack_require__(20);
+	var _handlebarsNoConflict = __webpack_require__(/*! ./handlebars/no-conflict */ 20);
 
 	// For compatibility and usage outside of module systems, make the Handlebars object a namespace
 
@@ -184,6 +189,9 @@
 
 /***/ },
 /* 4 */
+/*!**************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/base.js ***!
+  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -194,17 +202,17 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ./utils */ 5);
 
-	var _exception = __webpack_require__(6);
+	var _exception = __webpack_require__(/*! ./exception */ 6);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
-	var _helpers = __webpack_require__(7);
+	var _helpers = __webpack_require__(/*! ./helpers */ 7);
 
-	var _decorators = __webpack_require__(15);
+	var _decorators = __webpack_require__(/*! ./decorators */ 15);
 
-	var _logger = __webpack_require__(17);
+	var _logger = __webpack_require__(/*! ./logger */ 17);
 
 	var _logger2 = _interopRequireDefault(_logger);
 
@@ -294,6 +302,9 @@
 
 /***/ },
 /* 5 */
+/*!***************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/utils.js ***!
+  \***************************************************/
 /***/ function(module, exports) {
 
 	'use strict';
@@ -424,6 +435,9 @@
 
 /***/ },
 /* 6 */
+/*!*******************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/exception.js ***!
+  \*******************************************************/
 /***/ function(module, exports) {
 
 	'use strict';
@@ -470,6 +484,9 @@
 
 /***/ },
 /* 7 */
+/*!*****************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers.js ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -480,31 +497,31 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _helpersBlockHelperMissing = __webpack_require__(8);
+	var _helpersBlockHelperMissing = __webpack_require__(/*! ./helpers/block-helper-missing */ 8);
 
 	var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
 
-	var _helpersEach = __webpack_require__(9);
+	var _helpersEach = __webpack_require__(/*! ./helpers/each */ 9);
 
 	var _helpersEach2 = _interopRequireDefault(_helpersEach);
 
-	var _helpersHelperMissing = __webpack_require__(10);
+	var _helpersHelperMissing = __webpack_require__(/*! ./helpers/helper-missing */ 10);
 
 	var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
 
-	var _helpersIf = __webpack_require__(11);
+	var _helpersIf = __webpack_require__(/*! ./helpers/if */ 11);
 
 	var _helpersIf2 = _interopRequireDefault(_helpersIf);
 
-	var _helpersLog = __webpack_require__(12);
+	var _helpersLog = __webpack_require__(/*! ./helpers/log */ 12);
 
 	var _helpersLog2 = _interopRequireDefault(_helpersLog);
 
-	var _helpersLookup = __webpack_require__(13);
+	var _helpersLookup = __webpack_require__(/*! ./helpers/lookup */ 13);
 
 	var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
 
-	var _helpersWith = __webpack_require__(14);
+	var _helpersWith = __webpack_require__(/*! ./helpers/with */ 14);
 
 	var _helpersWith2 = _interopRequireDefault(_helpersWith);
 
@@ -522,13 +539,16 @@
 
 /***/ },
 /* 8 */
+/*!**************************************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers/block-helper-missing.js ***!
+  \**************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ../utils */ 5);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('blockHelperMissing', function (context, options) {
@@ -567,6 +587,9 @@
 
 /***/ },
 /* 9 */
+/*!**********************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers/each.js ***!
+  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -576,9 +599,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ../utils */ 5);
 
-	var _exception = __webpack_require__(6);
+	var _exception = __webpack_require__(/*! ../exception */ 6);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
@@ -667,6 +690,9 @@
 
 /***/ },
 /* 10 */
+/*!********************************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers/helper-missing.js ***!
+  \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -676,7 +702,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _exception = __webpack_require__(6);
+	var _exception = __webpack_require__(/*! ../exception */ 6);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
@@ -698,13 +724,16 @@
 
 /***/ },
 /* 11 */
+/*!********************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers/if.js ***!
+  \********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ../utils */ 5);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('if', function (conditional, options) {
@@ -733,6 +762,9 @@
 
 /***/ },
 /* 12 */
+/*!*********************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers/log.js ***!
+  \*********************************************************/
 /***/ function(module, exports) {
 
 	'use strict';
@@ -765,6 +797,9 @@
 
 /***/ },
 /* 13 */
+/*!************************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers/lookup.js ***!
+  \************************************************************/
 /***/ function(module, exports) {
 
 	'use strict';
@@ -783,13 +818,16 @@
 
 /***/ },
 /* 14 */
+/*!**********************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/helpers/with.js ***!
+  \**********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ../utils */ 5);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('with', function (context, options) {
@@ -822,6 +860,9 @@
 
 /***/ },
 /* 15 */
+/*!********************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/decorators.js ***!
+  \********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -832,7 +873,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _decoratorsInline = __webpack_require__(16);
+	var _decoratorsInline = __webpack_require__(/*! ./decorators/inline */ 16);
 
 	var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
 
@@ -844,13 +885,16 @@
 
 /***/ },
 /* 16 */
+/*!***************************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/decorators/inline.js ***!
+  \***************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ../utils */ 5);
 
 	exports['default'] = function (instance) {
 	  instance.registerDecorator('inline', function (fn, props, container, options) {
@@ -879,13 +923,16 @@
 
 /***/ },
 /* 17 */
+/*!****************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/logger.js ***!
+  \****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ./utils */ 5);
 
 	var logger = {
 	  methodMap: ['debug', 'info', 'warn', 'error'],
@@ -932,6 +979,9 @@
 
 /***/ },
 /* 18 */
+/*!*********************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/safe-string.js ***!
+  \*********************************************************/
 /***/ function(module, exports) {
 
 	// Build out our basic SafeString type
@@ -953,6 +1003,9 @@
 
 /***/ },
 /* 19 */
+/*!*****************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/runtime.js ***!
+  \*****************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -972,15 +1025,15 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	var _utils = __webpack_require__(5);
+	var _utils = __webpack_require__(/*! ./utils */ 5);
 
 	var Utils = _interopRequireWildcard(_utils);
 
-	var _exception = __webpack_require__(6);
+	var _exception = __webpack_require__(/*! ./exception */ 6);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
-	var _base = __webpack_require__(4);
+	var _base = __webpack_require__(/*! ./base */ 4);
 
 	function checkRevision(compilerInfo) {
 	  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
@@ -1251,6 +1304,9 @@
 
 /***/ },
 /* 20 */
+/*!*********************************************************!*\
+  !*** ./~/handlebars/dist/cjs/handlebars/no-conflict.js ***!
+  \*********************************************************/
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
@@ -1277,6 +1333,9 @@
 
 /***/ },
 /* 21 */
+/*!*****************!*\
+  !*** ./js/a.js ***!
+  \*****************/
 /***/ function(module, exports) {
 
 	// module.exports = function(name,href,options){
@@ -1291,4 +1350,6 @@
 	}
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;

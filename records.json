@@ -1,0 +1,36 @@
+{
+  "nextFreeModuleId": 22,
+  "modules": {
+    "byIdentifier": {
+      "js\\webpack_demo.js": 0,
+      "node_modules\\handlebars-loader\\index.js?{\"helperDirs\":\"f:\\myPlugin\\handlbars_text\\js\"}!f:\\myPlugin\\handlbars_text\\handlebars\\test.hbs": 1,
+      "node_modules\\handlebars\\runtime.js": 2,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars.runtime.js": 3,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\base.js": 4,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\utils.js": 5,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\exception.js": 6,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers.js": 7,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers\\block-helper-missing.js": 8,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers\\each.js": 9,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers\\helper-missing.js": 10,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers\\if.js": 11,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers\\log.js": 12,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers\\lookup.js": 13,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\helpers\\with.js": 14,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\decorators.js": 15,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\decorators\\inline.js": 16,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\logger.js": 17,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\safe-string.js": 18,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\runtime.js": 19,
+      "node_modules\\handlebars\\dist\\cjs\\handlebars\\no-conflict.js": 20,
+      "js\\a.js": 21
+    }
+  },
+  "nextFreeChunkId": 1,
+  "chunks": {
+    "byName": {
+      "webpack_demo": 0
+    },
+    "byBlocks": {}
+  }
+}

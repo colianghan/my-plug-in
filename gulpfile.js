@@ -12,6 +12,10 @@ var browserSync = require('browser-sync');
 
 var reload = browserSync.reload;
 
+var webpack = require('webpack');
+
+var webpack_configer = require('./webpack.config.js');
+
 
 gulp.task('template',function(){
 	gulp.src('handlebars/header.hbs')
@@ -46,6 +50,16 @@ gulp.task('partial',function(){
 gulp.task('watch',function(){
 	gulp.watch('handlebars/*.hbs',['template','partial',reload]);
 })
+
+gulp.task('webpack',function(){
+	console.log(webpack_configer);
+	webpack(webpack_configer,function(err,state){
+		if(err){
+			return console.log('error');
+		}
+		console.log(state.toJSON());
+	})
+});
 
 gulp.task('server',['watch'],function(){
 	browserSync({
